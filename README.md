@@ -1,2 +1,2 @@
-# homebrew-sshabu
-Homebrew tap for Ratsky Sshabu
+# homebrew-taps
+Homebrew tap for Ratsky Projects

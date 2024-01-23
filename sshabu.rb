@@ -5,23 +5,23 @@
 class Sshabu < Formula
   desc "SSH client management tool"
   homepage "https://github.com/ratsky-oss/sshabu"
-  version "0.1.1"
+  version "0.1.2"
   license "Apache-2.0"
 
   depends_on "openssh" => :optional
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.1/sshabu_Darwin_arm64.tar.gz"
-      sha256 "718b43f2739f3bad7ddf83dfdfcb71623497813c397222d6bfc6954c5156f860"
+    if Hardware::CPU.intel?
+      url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.2/sshabu_Darwin_x86_64.tar.gz"
+      sha256 "ebb14aac024f26573c4d9b105644b734309e81f5c2abd2318d1d935be306c02d"
 
       def install
         bin.install "sshabu"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.1/sshabu_Darwin_x86_64.tar.gz"
-      sha256 "924d91d227dd99498355b15f916543c9adf53ac00a3671a93030b14a82bd8bf1"
+    if Hardware::CPU.arm?
+      url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.2/sshabu_Darwin_arm64.tar.gz"
+      sha256 "6b30294b582e55da56666fef55206fefbddfa3bf291a4536e30ec4a41a62ba4b"
 
       def install
         bin.install "sshabu"
@@ -31,16 +31,16 @@ class Sshabu < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.1/sshabu_Linux_arm64.tar.gz"
-      sha256 "20e698dc972631bdbe0e99cd3710e8762cac8531b714d5bf10d7255d0cf11c6d"
+      url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.2/sshabu_Linux_arm64.tar.gz"
+      sha256 "a5d78b0042acf3cfb351ea540b1b1a36c150aec6947dc8c752b94f6f3eb77146"
 
       def install
         bin.install "sshabu"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.1/sshabu_Linux_x86_64.tar.gz"
-      sha256 "eab60ddfd94fc3f2d8261bb6e74933fd3aadf96dbba57af5e6c00ee9833e4f50"
+      url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.2/sshabu_Linux_x86_64.tar.gz"
+      sha256 "9202ea93303d1f049bbb385714660df41cca6574340c20adab88a85192af0ef6"
 
       def install
         bin.install "sshabu"

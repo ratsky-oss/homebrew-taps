@@ -11,17 +11,17 @@ class Sshabu < Formula
   depends_on "openssh" => :optional
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.2/sshabu_Darwin_x86_64.tar.gz"
-      sha256 "ebb14aac024f26573c4d9b105644b734309e81f5c2abd2318d1d935be306c02d"
+    if Hardware::CPU.arm?
+      url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.2/sshabu_Darwin_arm64.tar.gz"
+      sha256 "8b8d23c455ecb8efdd9fb20c60a9cae369ab1caa2ce8df671c1076ce231a93bd"
 
       def install
         bin.install "sshabu"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.2/sshabu_Darwin_arm64.tar.gz"
-      sha256 "6b30294b582e55da56666fef55206fefbddfa3bf291a4536e30ec4a41a62ba4b"
+    if Hardware::CPU.intel?
+      url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.2/sshabu_Darwin_x86_64.tar.gz"
+      sha256 "5d66917335c8edbceaefe2a7a09d8e8530af89d53925bac36d0feb47344e68da"
 
       def install
         bin.install "sshabu"
@@ -32,7 +32,7 @@ class Sshabu < Formula
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.2/sshabu_Linux_arm64.tar.gz"
-      sha256 "a5d78b0042acf3cfb351ea540b1b1a36c150aec6947dc8c752b94f6f3eb77146"
+      sha256 "7d89f5c7379f18bb006e44f2d4669a0797d4cda17507c0d44a52b318adbf80ea"
 
       def install
         bin.install "sshabu"
@@ -40,7 +40,7 @@ class Sshabu < Formula
     end
     if Hardware::CPU.intel?
       url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.2/sshabu_Linux_x86_64.tar.gz"
-      sha256 "9202ea93303d1f049bbb385714660df41cca6574340c20adab88a85192af0ef6"
+      sha256 "1d92b8672173e673bdc12013528626557792e4c59b4e0e87f8a4dcb3594993ee"
 
       def install
         bin.install "sshabu"

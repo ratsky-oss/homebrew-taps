@@ -5,23 +5,23 @@
 class Sshabu < Formula
   desc "SSH client management tool"
   homepage "https://github.com/ratsky-oss/sshabu"
-  version "0.1.2"
+  version "0.1.3"
   license "Apache-2.0"
 
   depends_on "openssh" => :optional
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.2/sshabu_Darwin_arm64.tar.gz"
-      sha256 "8b8d23c455ecb8efdd9fb20c60a9cae369ab1caa2ce8df671c1076ce231a93bd"
+    on_intel do
+      url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.3/sshabu_Darwin_x86_64.tar.gz"
+      sha256 "13a5baa4094add5f377393dcbce1f51c545dca92743dfeefdfc0d8f043648ad8"
 
       def install
         bin.install "sshabu"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.2/sshabu_Darwin_x86_64.tar.gz"
-      sha256 "5d66917335c8edbceaefe2a7a09d8e8530af89d53925bac36d0feb47344e68da"
+    on_arm do
+      url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.3/sshabu_Darwin_arm64.tar.gz"
+      sha256 "515471a2ad48681944cd875fafb0cab210dc40d025c30cb58074bbcb781557ba"
 
       def install
         bin.install "sshabu"
@@ -30,20 +30,24 @@ class Sshabu < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.2/sshabu_Linux_arm64.tar.gz"
-      sha256 "7d89f5c7379f18bb006e44f2d4669a0797d4cda17507c0d44a52b318adbf80ea"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.3/sshabu_Linux_x86_64.tar.gz"
+        sha256 "60e358fa5b1516d3c6433b788c06b7bc74b4c45a7f47bb32007d2335f9d73c0a"
 
-      def install
-        bin.install "sshabu"
+        def install
+          bin.install "sshabu"
+        end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.2/sshabu_Linux_x86_64.tar.gz"
-      sha256 "1d92b8672173e673bdc12013528626557792e4c59b4e0e87f8a4dcb3594993ee"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/ratsky-oss/sshabu/releases/download/v0.1.3/sshabu_Linux_arm64.tar.gz"
+        sha256 "a0c74a21f14bb476568ee6e80544c68a08b4f948d9560c829039727514056c9b"
 
-      def install
-        bin.install "sshabu"
+        def install
+          bin.install "sshabu"
+        end
       end
     end
   end
